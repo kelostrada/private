@@ -1,7 +1,7 @@
-## Simple case to reproduce bug in hex private repos
-github.com/hexpm/hex/issues/576
+# Simple case to reproduce bug in hex private repos
+https://github.com/hexpm/hex/issues/576
 
-# Steps to reproduce
+## Steps to reproduce
 
 ```elixir
 (cd plug && mix deps.get)
@@ -10,7 +10,7 @@ github.com/hexpm/hex/issues/576
 (cd private && ORGANIZATION=[org_name] mix hex.publish)
 ```
 
-# Results:
+## Results:
 
 ```
 ==> private_project
