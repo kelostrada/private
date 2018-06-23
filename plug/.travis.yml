@@ -1,0 +1,21 @@
+language: elixir
+sudo: false
+elixir: 1.6.1
+otp_release: 20.1
+env:
+  - COWBOY_VERSION=1.0
+  - COWBOY_VERSION=2.0
+matrix:
+  include:
+    - elixir: 1.3.0
+      otp_release: 18.1
+notifications:
+  recipients:
+    - jose.valim@plataformatec.com.br
+    - eric.meadows.jonsson@gmail.com
+script:
+  - if [[ `elixir -v` = *"1.6"* ]]; then mix format --check-formatted; fi
+  - mix test
+after_script:
+  - mix deps.get --only docs
+  - MIX_ENV=docs mix inch.report
